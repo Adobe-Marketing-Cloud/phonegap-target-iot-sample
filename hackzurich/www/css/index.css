@@ -1,0 +1,172 @@
+/*
+ * ADOBE CONFIDENTIAL
+ *
+ * Copyright 2016 Adobe Systems Incorporated
+ * All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and may be covered by U.S. and Foreign Patents,
+ * patents in process, and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ */
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: .4;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: .4;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+.hackzurich-App {
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+
+    display: table;
+
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    -webkit-transition: background-color 300ms;
+    transition: background-color 300ms;
+    text-transform: uppercase;
+
+    background-color: #191e31;
+
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+}
+
+
+.hackzurich-App--earthquake {
+    background-color: chocolate;
+}
+.hackzurich-App--flood {
+    background-color: blue;
+}
+.hackzurich-App--hurricane {
+    background-color: gray;
+}
+
+.hackzurich-App-content {
+    display: table-cell;
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+.hackzurich-App-title {
+    font-size: 0;
+    font-weight: normal;
+
+    overflow: visible;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+
+    color: #fff;
+}
+
+/* App logo */
+.hackzurich-App-title:before {
+    display: inline-block;
+
+    width: 745px;
+    max-width: 75vw;
+    height: 600px;
+    max-height: 50vh;
+    margin: 0 auto;
+
+    content: '';
+
+    background: url(../img/adobe_hackzurich.png) no-repeat center center;
+    background-size: contain;
+}
+
+.hackzurich-App-country {
+    padding: 5px 10px;
+
+    color: #fff;
+    border: 1px solid #fff;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: none;
+}
+
+
+.hackzurich-App-notification {
+    -webkit-animation: fade 3000ms infinite;
+    animation: fade 3000ms infinite;
+}
+
+.hackzurich-Event {
+    font-size: 12px;
+
+    display: none;
+
+    margin: 30px;
+    padding: 5px 10px;
+
+    color: #fff;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.hackzurich-Event--loading {
+    display: inline-block;
+
+    color: #000;
+    background-color: #ddd;
+}
+
+.hackzurich-Event--ready {
+    background-color: #4b946a;
+}
+
+.hackzurich-Event--waiting {
+    background-color: #323fb8;
+}
+
+.hackzurich-Event--event {
+    background-color: #000;
+    color: #fff;
+}
+
+.hackzurich-Event--error {
+    background-color: #b83232;
+}

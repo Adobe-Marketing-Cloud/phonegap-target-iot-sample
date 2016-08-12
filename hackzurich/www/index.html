@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Adobe HackZurich</title>
+    </head>
+    <body class="hackzurich-App">
+        <div class="hackzurich-App-content">
+            <h1 class="hackzurich-App-title">Adobe HackZurich</h1>
+            <div class="hackzurich-App-notification">
+                <p class="hackzurich-Event hackzurich-Event--loading">Connecting to Device</p>
+                <p class="hackzurich-Event hackzurich-Event--ready">Device is Ready</p>
+                <p class="hackzurich-Event hackzurich-Event--waiting">Sending event to server</p>
+                <p class="hackzurich-Event hackzurich-Event--event"></p>
+                <p class="hackzurich-Event hackzurich-Event--error"></p>
+            </div>
+            <select class="hackzurich-App-country" name="country">
+                <optgroup label="A">
+                    <option>Albania</option>
+                    <option>Andorra</option>
+                    <option>Armenia</option>
+                    <option>Austria</option>
+                    <option>Azerbaijan</option>
+                </optgroup>
+                <optgroup label="B">
+                    <option>Belarus</option>
+                    <option>Belgium</option>
+                    <option>Bosnia and Herzegovina</option>
+                    <option>Bulgaria</option>
+                </optgroup>
+                <optgroup label="C">
+                    <option>Croatia</option>
+                    <option>Cyprus</option>
+                    <option>Czech Republic</option>
+                </optgroup>
+                <optgroup label="D">
+                    <option>Denmark</option>
+                </optgroup>
+                <optgroup label="E">
+                    <option>Estonia</option>
+                </optgroup>
+                <optgroup label="F">
+                    <option>Finland</option>
+                    <option>France</option>
+                </optgroup>
+                <optgroup label="G">
+                    <option>Georgia</option>
+                    <option>Germany</option>
+                    <option>Greece</option>
+                </optgroup>
+                <optgroup label="H">
+                    <option>Hungary</option>
+                </optgroup>
+                <optgroup label="I">
+                    <option>Iceland</option>
+                    <option>Ireland</option>
+                    <option>Italy</option>
+                </optgroup>
+                <optgroup label="K">
+                    <option>Kazakhstan</option>
+                    <option>Kosovo</option>
+                </optgroup>
+                <optgroup label="L">
+                    <option>Latvia</option>
+                    <option>Liechtenstein</option>
+                    <option>Lithuania</option>
+                    <option>Luxembourg</option>
+                </optgroup>
+                <optgroup label="M">
+                    <option>Macedonia</option>
+                    <option>Malta</option>
+                    <option>Moldova</option>
+                    <option>Monaco</option>
+                    <option>Montenegro</option>
+                </optgroup>
+                <optgroup label="N">
+                    <option>Netherlands</option>
+                    <option>Norway</option>
+                </optgroup>
+                <optgroup label="P">
+                    <option>Poland</option>
+                    <option>Portugal</option>
+                </optgroup>
+                <optgroup label="R">
+                    <option>Romania</option>
+                    <option>Russia</option>
+                </optgroup>
+                <optgroup label="S">
+                    <option>San Marino</option>
+                    <option>Serbia</option>
+                    <option>Slovakia</option>
+                    <option>Slovenia</option>
+                    <option>Spain</option>
+                    <option>Sweden</option>
+                    <option>Switzerland</option>
+                </optgroup>
+                <optgroup label="T">
+                    <option>Turkey</option>
+                </optgroup>
+                <optgroup label="U">
+                    <option>Ukraine</option>
+                    <option>United Kingdom</option>
+                </optgroup>
+                <optgroup label="V">
+                    <option>Vatican City</option>
+                </optgroup>
+            </select>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/event.earthquake.js"></script>
+        <script type="text/javascript" src="js/event.flood.js"></script>
+        <script type="text/javascript" src="js/event.hurricane.js"></script>
+    </body>
+</html>

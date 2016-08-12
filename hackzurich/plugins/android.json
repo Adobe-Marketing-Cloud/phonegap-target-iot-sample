@@ -1,0 +1,27 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-add-swift-support": {
+            "PACKAGE_NAME": "com.adobe.cq.hackzurich"
+        },
+        "cordova-plugin-dbmeter": {
+            "PACKAGE_NAME": "com.adobe.cq.hackzurich"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.adobe.cq.hackzurich"
+        },
+        "cordova-plugin-shake": {
+            "PACKAGE_NAME": "com.adobe.cq.hackzurich"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.adobe.cq.hackzurich"
+        }
+    },
+    "dependent_plugins": {}
+}
