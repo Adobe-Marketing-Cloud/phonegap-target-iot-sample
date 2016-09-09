@@ -1,12 +1,11 @@
 <html>
   <body>
-    <p id='server-time'></p>
     <script>
-      var HOST = location.origin.replace(/^http/, 'ws')
-      var ws = new WebSocket(HOST);
-      var el = document.getElementById('server-time');
+      var ws = new WebSocket('ws://adobehackzurich.herokuapp.com');
       ws.onmessage = function (event) {
-        el.innerHTML = 'Server time: ' + event.data;
+        var el = document.createElement('div');
+        el.textContent = '[' + Date.now() + '] ' + event.data;
+        document.body.insertBefore(el, document.body.firstChild);
       };
     </script>
   </body>
