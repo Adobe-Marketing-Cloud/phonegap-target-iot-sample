@@ -1,7 +1,7 @@
 <html>
   <body>
     <script>
-      var ws = new WebSocket('ws://adobehackzurich.herokuapp.com');
+      var ws = new WebSocket('wss://adobehackzurich.herokuapp.com');
       ws.onmessage = function (event) {
         var el = document.createElement('div');
         el.textContent = '[' + Date.now() + '] ' + event.data;
