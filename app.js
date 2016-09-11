@@ -1,73 +1,95 @@
-var port = process.env.PORT || 3000;
+/* globals module, process */
+var port = process.env.PORT || 3000; // eslint-disable-line no-process-env
 
-var server = require('http').createServer();
-var express = require('express');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var methodOverride = require('method-override');
-var morgan = require('morgan');
-var cors = require('cors');
-var ws = require('ws');
+module.exports = (function() {
+    'use strict';
 
-var app = express();
-var WebSocketServer = require('ws').Server;
+    function initApp() {
+        var express = require('express');
+        var morgan = require('morgan');
+        var bodyParser = require('body-parser');
+        var cookieParser = require('cookie-parser');
+        var cors = require('cors');
 
-app.use(morgan('dev'));
+        var app = express();
 
-// parsers
-app.use(bodyParser.urlencoded({'extended':'true'}));
-app.use(bodyParser.json());
-app.use(bodyParser.json({
-    type:'application/vnd.api+json'
-}));
-app.use(cookieParser());
+        // logger
+        app.use(morgan('dev'));
 
-// add CORS for debugging
-app.use(cors({
-    origin: true,
-    credentials: true
-}));
+        // parsers
+        app.use(bodyParser.urlencoded({extended: 'true'}));
+        app.use(bodyParser.json({type: 'application/vnd.api+json'}));
+        app.use(cookieParser());
 
-app.use('/public', express.static('public'));
+        // add CORS for debugging
+        app.use(cors({
+            origin: true,
+            credentials: true
+        }));
 
-server.on('request', app);
-server.listen(port);
+        // static files
+        app.use('/', express.static('public'));
 
-var wss = new WebSocketServer({ server: server });
-wss.on('connection', function (ws) {
-    console.log(Date.now() + ' Client connected');
+        return app;
+    }
 
-    ws.on('message', function incoming(message) {
-        console.log('received: %s', message);
-    });
+    function initServer(app) {
+        var http = require('http');
+        var server = http.createServer(app);
+        return server;
+    }
 
-    ws.on('close', function () {
-        console.log(Date.now() + ' Client disconnected');    
-    });
-});
+    function initWebSockets(server) {
+        var ws = require('ws');
+        var wss = new ws.Server({ server: server });
 
-console.log('Listening on port ' + port);
+        wss.on('connection', function(socket) {
+            console.log(Date.now() + ' Client connected');
 
-app.post('/whathappened', function (req, res) {
-    var event = req.body.catastrophe;
-    var country = req.body.country;
-    var name = req.body.name;
-
-    console.log(country, event);
-
-    wss.clients.forEach(function (client) {
-        try { 
-            client.send({
-                emergency: event,
-                location: country,
-                reported: name
+            socket.on('message', function incoming(message) {
+                console.log('received: %s', message);
             });
-        } catch (e) {
-            console.error(e);
-        }
+
+            socket.on('close', function() {
+                console.log(Date.now() + ' Client disconnected');
+            });
+        });
+
+        return wss;
+    }
+
+    function addRoutes(app, wss) {
+
+        app.post('/whathappened', function(req, res) {
+            var disaster = req.body.disaster;
+            var country = req.body.country;
+
+            console.log(country, disaster);
+
+            wss.clients.forEach(function(client) {
+                try {
+                    client.send({
+                        disaster: disaster,
+                        country: country
+                    });
+                } catch (e) {
+                    console.error(e);
+                }
+            });
+
+            res.sendStatus(200);
+        });
+
+    }
+
+    var app = initApp();
+    var server = initServer(app);
+    var wss = initWebSockets(server);
+    addRoutes(app, wss);
+    server.listen(port, null, function() {
+        console.log('Listening on port ' + port);
     });
 
-    res.sendStatus(200);
-});
+    return app;
 
-module.exports = app;
+}());

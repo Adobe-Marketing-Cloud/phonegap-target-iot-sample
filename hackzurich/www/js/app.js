@@ -57,7 +57,7 @@ var AdobeHackZurichApp = (function() {
         };
         request.open('Post', SERVER_ENDPOINT + '/whathappened', true);
         request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        request.send('country=' + country + '&event=' + eventName);
+        request.send('country=' + country + '&disaster=' + eventName);
     }
 
     function _trigger(eventName) {

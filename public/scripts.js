@@ -57,37 +57,43 @@
             va: 'Vatican City'
     };
 
-    function getCountryElement(country) {
-        return document.querySelector('#' + country);
-    }
+    var AdobeHackZurichWebApp = (function() {
 
-    function hideDisasterNotification(country, disaster) {
-        var el = getCountryElement(country);
-        el.classList.remove('hackzurich-Disaster--' + disaster);
-    }
+        function getCountryElement(country) {
+            return document.querySelector('#' + country);
+        }
 
-    function showDisasterNotification(country, disaster) {
-        var el = getCountryElement(country);
-        el.classList.add('hackzurich-Disaster--' + disaster);
-        window.setTimeout(function() {
-            hideDisasterNotification(country, disaster);
-        }, DISASTER_TIMEOUT);
-    }
+        function hideDisasterNotification(country, disaster) {
+            var el = getCountryElement(country);
+            el.classList.remove('hackzurich-Disaster--' + disaster);
+        }
 
-    function logDisaster(country, disaster) {
-        var el = document.createElement('div');
-        el.className = 'hackzurich-DisasterLogEntry';
-        el.textContent = '[' + new Date().toLocaleString() + '] ' + COUNTRIES[country] + ': ' + disaster;
-        var logEl = document.querySelector('.hackzurich-DisasterLog');
-        logEl.insertBefore(el, logEl.firstChild);
-    }
+        function showDisasterNotification(country, disaster) {
+            var el = getCountryElement(country);
+            el.classList.add('hackzurich-Disaster--' + disaster);
+            window.setTimeout(function() {
+                hideDisasterNotification(country, disaster);
+            }, DISASTER_TIMEOUT);
+        }
 
-    var App = function() {};
+        function logDisaster(country, disaster) {
+            var el = document.createElement('div');
+            el.className = 'hackzurich-DisasterLogEntry';
+            el.textContent = '[' + new Date().toLocaleString() + '] ' + COUNTRIES[country] + ': ' + disaster;
+            var logEl = document.querySelector('.hackzurich-DisasterLog');
+            logEl.insertBefore(el, logEl.firstChild);
+        }
 
-    App.prototype.triggerDisaster = function(country, disaster) {
-        logDisaster(country, disaster);
-        showDisasterNotification(country, disaster);
-    };
+        var App = function() {};
+
+        App.prototype.triggerDisaster = function(country, disaster) {
+            logDisaster(country, disaster);
+            showDisasterNotification(country, disaster);
+        };
+
+        return App;
+
+    }());
 
     var ws = new WebSocket(SERVER_ENDPOINT);
     ws.onmessage = function(ev) {
@@ -97,6 +103,6 @@
         window.app.triggerDisaster(country, disaster);
     };
 
-    window.app = new App();
+    window.app = new AdobeHackZurichWebApp();
 
 }(window, document));
