@@ -1,0 +1,35 @@
+.hackzurich-Country {
+    fill: white;
+    transition: fill .5s;
+}
+
+.hackzurich-DisasterMap {
+    position: absolute;
+    height: 100%;
+    width: 80%;
+}
+
+.hackzurich-DisasterMap svg {
+    height: 100%;
+    width: 100%;
+}
+
+.hackzurich-DisasterLog {
+    position: absolute;
+    overflow: hidden;
+    right: 0;
+    max-height: 100%;
+    width: 20%;
+}
+
+.hackzurich-Disaster--earthquake {
+    fill: chocolate;
+}
+
+.hackzurich-Disaster--flood {
+    fill: blue;
+}
+
+.hackzurich-Disaster--hurricane {
+    fill: gray;
+}
