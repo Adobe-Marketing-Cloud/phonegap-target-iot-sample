@@ -1,7 +1,7 @@
 (function(window, document) {
     'use strict';
 
-    var SERVER_ENDPOINT = 'wss://adobehackzurich.herokuapp.com';
+    var SERVER_ENDPOINT = 'ws://192.168.0.129:3000';
     var DISASTER_TIMEOUT = 5000;
     var COUNTRIES = {
             al: 'Albania',
@@ -96,11 +96,12 @@
     }());
 
     var ws = new WebSocket(SERVER_ENDPOINT);
+    ws.onopen = function(ev) {
+        console.log('Websocket connection ' + ev.type);
+    };
     ws.onmessage = function(ev) {
-        var country = ev.data.country;
-        var disaster = ev.data.event;
-
-        window.app.triggerDisaster(country, disaster);
+        var data = JSON.parse(ev.data) || {};
+        window.app.triggerDisaster(data.country, data.disaster);
     };
 
     window.app = new AdobeHackZurichWebApp();

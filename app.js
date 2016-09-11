@@ -64,14 +64,12 @@ module.exports = (function() {
             var disaster = req.body.disaster;
             var country = req.body.country;
 
-            console.log(country, disaster);
-
             wss.clients.forEach(function(client) {
                 try {
-                    client.send({
+                    client.send(JSON.stringify({
                         disaster: disaster,
                         country: country
-                    });
+                    }));
                 } catch (e) {
                     console.error(e);
                 }

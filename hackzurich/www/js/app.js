@@ -20,7 +20,7 @@
 var AdobeHackZurichApp = (function() {
     'use strict';
 
-    var SERVER_ENDPOINT = 'https://adobehackzurich.herokuapp.com';
+    var SERVER_ENDPOINT = 'http://192.168.0.129:3000';
     var COUNTRY_KEY = 'com.adobe.hackzurich.country';
     var APP_CLASS = 'hackzurich-App';
     var COUNTRY_SELECTOR = '.hackzurich-App-country';
