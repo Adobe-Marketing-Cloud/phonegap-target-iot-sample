@@ -1,3 +1,7 @@
+.hackzurich-Map {
+    margin: 0;
+}
+
 .hackzurich-Country {
     fill: white;
     transition: fill .5s;
