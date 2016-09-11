@@ -1,7 +1,7 @@
 (function(window, document) {
     'use strict';
 
-    var SERVER_ENDPOINT = 'ws://192.168.0.129:3000';
+    var SERVER_ENDPOINT = 'wss://adobehackzurich.herokuapp.com';
     var DISASTER_TIMEOUT = 5000;
     var COUNTRIES = {
             al: 'Albania',
