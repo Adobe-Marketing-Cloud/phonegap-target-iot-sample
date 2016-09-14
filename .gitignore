@@ -3,5 +3,5 @@
 /.tmp
 /.sass-cache
 /bower_components
-/hackzurich/platforms
-/hackzurich/plugins
+/hazard-generator/platforms
+/hazard-generator/plugins
