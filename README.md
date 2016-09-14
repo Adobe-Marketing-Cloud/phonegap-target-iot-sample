@@ -23,8 +23,8 @@ Hurricane  | Blow continuously in the mike for a second
 - [nodejs](https://nodejs.org/en/download/)
 - [cordova](https://cordova.apache.org/docs/en/latest/guide/cli/)
 
-#### Building and running the app
-- `cd hackzurich`
+#### Building and running the hazard-generator app
+- `cd hazard-generator`
 - adjust the `SERVER_ENDPOINT` variable in `www/js/app.js` if you want to use a custom server
 - connect your mobile phone to the computer
 - `cordova platform add android` or `cordova platform add ios`
