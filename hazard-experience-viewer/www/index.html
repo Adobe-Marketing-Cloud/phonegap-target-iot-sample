@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <!-- 
+        Include the hackzurich version of Adobe Target at.js
+        The at.js functions are described at:
+            https://marketing.adobe.com/resources/help/en_US/target/ov2/r_target-atjs-mboxdefine-mboxupdate.html            
+        -->
+        <script type="text/javascript" src="js/at.hackzurich.js"></script>
+    </head>
+    <body>
+        <h1>HackZurich Hazard Viewer</h1>
+        <div id="hazardMboxId" class="mboxDefault">
+            <p>Loading targeted experience ...</p>
+        </div>
+
+        <script type="text/javascript">
+
+                /*
+                 * Set the server endpoint (e.g. ws://localhost:3000)
+                 */
+                var SERVER_ENDPOINT = 'wss://adobehackzurich.herokuapp.com';
+
+                var ws = new WebSocket(SERVER_ENDPOINT);
+                ws.onopen = function(ev) {
+                    console.log('Websocket connection ' + ev.type);
+                };
+                ws.onmessage = function(ev) {
+
+                    var data = JSON.parse(ev.data) || {};
+                    console.log('Received ' + data.country + ' ' + data.disaster);
+
+                    // Dispatch the event
+                    var event = new CustomEvent('hazard', {'detail': data});
+                    document.body.dispatchEvent(event);
+                };
+
+                /* 
+                 * Creates an internal mapping between a nodeId and an mbox name, but does not 
+                 * execute the request. Used in conjunction with mboxUpdate()
+                 *
+                 *    mboxDefine('someId','mboxName','param1=value1','param2=value2');
+                 */
+                mboxDefine('hazardMboxId', 'hazardMbox');
+
+                /* 
+                 * Executes the request and applies the offer to the element identified by the nodeId 
+                 * in the mboxDefine(). Can also be used to update an mbox initiated by mboxCreate.
+                 *
+                 *    mboxUpdate('mboxName','param3=value3','param4=value4');
+                 */
+                mboxUpdate('hazardMbox');
+
+            </script>
+            <p>Powered by <a href="https://www.adobe.com/marketing-cloud/testing-targeting.html">Adobe Target</a></p>
+    </body>
+</html>
