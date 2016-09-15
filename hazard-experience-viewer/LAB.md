@@ -10,14 +10,14 @@ To login to the Marketing Cloud, you will use the following information:
 
 ## Lab 1: Adobe Target – a quick intro
 
-In this exercise, you will familiarize yourself with Adobe Target's UI. You will log into the Adobe Marketing Cloud and access Adobe Target to view a list of activities.
+In this exercise, you will familiarize yourself with Adobe Target's UI. You will log into the Adobe Marketing Cloud and access Adobe Target to view a list of activities. 
 
 * Step 1: Browse to url for Adobe Marketing Cloud: https://hackzurich2016.marketing.adobe.com/content/mac/hackzurich2016/target/activities.html
 
 * Step 2: Choose "Sign in with Adobe ID" blue button from the login page. If prompted for which account to use, select "Adobe ID/Personal account" and **NOT** "Enterprise ID/Company or school account".
 
-* Step 3: Login using your Adobe ID. For example:
-Marketing Cloud Login: hackzuri+00@adobetest.com
+* Step 3: Login using your Adobe ID. For example:  
+Marketing Cloud Login: hackzuri+00@adobetest.com  
 Password: ######
 
 * Step 4: Click on the "Target" link on the left pane under "Solutions". After clicking the "Target" link you will see a "Target" card in the main pane. Please click the "Target" card to get into Target.
@@ -30,9 +30,9 @@ Adobe Target is where you will create the experiences to deliver to your various
 
 To create an audience, for example CH (), on the "Audiences" page:
 * Step 1: Click on "+ Create Audience" button
-* Step 2: Enter audience details as follow:
-Audience Name: CH
-Click on "+ Add Rule" as "Geo", evaluator "matches", then search for "switzerland"
+* Step 2: Enter audience details as follow:  
+Audience Name: CH  
+Click on "+ Add Rule" as "Geo", evaluator "matches", then search for "switzerland"  
 
 ![](https://adobe-marketing-cloud.github.io/phonegap-target-iot-sample/hazard-experience-viewer/lab-images/lab2_img1.png)
 
@@ -49,9 +49,9 @@ We defined 4 audience types, based on the following configurations:
 ## Lab 3: Hazard Viewer - Content Offer
 
 To create a targetted offer, on the "Content" page:
-* Step 1: Click on "Create" button, select "HTML Offer"
+* Step 1: Click on "Create" button, select "HTML Offer"    
 ![](https://adobe-marketing-cloud.github.io/phonegap-target-iot-sample/hazard-experience-viewer/lab-images/lab3_img1.png)
-* Step 2: Enter Offer Name and HTML Code for targetting:
+* Step 2: Enter Offer Name and HTML Code for targetting:  
 ![](https://adobe-marketing-cloud.github.io/phonegap-target-iot-sample/hazard-experience-viewer/lab-images/lab3_img2.png)
 * Step 3: Save the offer. You should now see the new offer in the list.
 
@@ -61,7 +61,7 @@ To create a targetted offer, on the "Content" page:
 
 ![](https://adobe-marketing-cloud.github.io/phonegap-target-iot-sample/hazard-experience-viewer/lab-images/lab1_img1.png)
 
-* Step 2: Click on Create Activity, and choose Experience Targeted
+* Step 2: Click on Create Activity, and choose Experience Targeted 
 
 ![](http://adobe-marketing-cloud.github.io/target-iot-lab/lab-images/lesson2_img2.png)
 
@@ -83,7 +83,7 @@ Select the CH_Watch_Offer which we created in Lab 3.
 
 ![](https://adobe-marketing-cloud.github.io/phonegap-target-iot-sample/hazard-experience-viewer/lab-images/lab4_img5.png)
 
-* Step 7: Click on the edit icon next to "All Visitors", and choose the audience CH
+* Step 7: Click on the edit icon next to "All Visitors", and choose the audience CH 
 
 ![](https://adobe-marketing-cloud.github.io/phonegap-target-iot-sample/hazard-experience-viewer/lab-images/lab4_img6.png)
 
