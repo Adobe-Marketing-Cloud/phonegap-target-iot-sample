@@ -6,6 +6,7 @@ The experience can combine one or multiple widgets which react on the disaster e
 
 ## Widgets
 
+Widgets are displayed based on targetted audiences. Different audiences receive different sets of widgets when they access the site (Experience Targetting).
 
 |Tag                                | Feature  
 |-----------------------------------|-----------------------------------
@@ -15,7 +16,7 @@ The experience can combine one or multiple widgets which react on the disaster e
 |`<div class="hazard-watch-ch"/>`   | Report the disaster events which occur in Switzerland
 
 
-## Test
+## Hands-on
 
 ### Locally
 
@@ -32,8 +33,14 @@ then browse
 http://localhost:8000
 ```
 
-Please adjust the variable `SERVER_ENDPOINT` in the file `www/index.html` if you want to connect to a custom `hazard-server` instance 
+Please adjust the variable `SERVER_ENDPOINT` in the file `www/index.html` if you want to connect to a custom `hazard-server` instance. 
 
-### Hosted
+### Hosted sample
 
 The site is hosted on github at [https://adobe-marketing-cloud.github.io/phonegap-target-iot-sample/hazard-experience-viewer/www/index.html](https://adobe-marketing-cloud.github.io/phonegap-target-iot-sample/hazard-experience-viewer/www/index.html)
+
+## Adobe Target Lab
+
+For a ramp-up with Adobe Target, you are highly recommended to walk through the [Lab Example](LAB.md) to understand basic concepts and usage.  
+
+Details about configurating mbox in the targetted web page can be seen in the example [index.html](index.html).
