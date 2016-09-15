@@ -8,7 +8,7 @@ The experience can combine one or multiple widgets which react on the disaster e
 
 
 |Tag                                | Feature  
-|-----------------------------------------------------------------------
+|-----------------------------------|-----------------------------------
 |`<div class="hazard-listing"/>`    | List all the disaster events received
 |`<div class="hazard-statistics"/>` | Keep track and displays the number of disaster events 
 |`<div class="hazard-forecast"/>`   | Compute the probability of a disaster in the next day (currently evaluated with `Math.random` ..)
