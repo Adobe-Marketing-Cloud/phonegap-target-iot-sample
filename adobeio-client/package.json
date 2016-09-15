@@ -1,0 +1,21 @@
+{
+  "name": "adobeio-client",
+  "version": "0.0.1",
+  "author": "Adobe Systems Inc.",
+  "license": "Apache-2.0",
+  "description": "A node.js client for Adobe I/O.",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "keywords": [
+    "adobe",
+    "adobe.io",
+    "API",
+    "developer",
+    "client library"
+  ],
+  "dependencies": {
+    "jwt-simple": "^0.5.0",
+    "request": "^2.74.0"
+  }
+}
