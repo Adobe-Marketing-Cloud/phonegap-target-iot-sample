@@ -5,7 +5,7 @@ Adobe Target & PhoneGap @ HackZurich
 
 At HackZurich 2016, Adobe will introduce [Adobe Target](https://www.adobe.io/products/target/docs/getting-started) and [Adobe PhoneGap](http://phonegap.com/) and invite you to build your use case around either of those technologies.
 
-** Adobe PhoneGap** is an Open source cross-platform mobile development based on [Apache Cordova](https://cordova.apache.org). It allows to run your app on multiple platforms with a single code base.
+**Adobe PhoneGap** is an Open source cross-platform mobile development based on [Apache Cordova](https://cordova.apache.org). It allows to run your app on multiple platforms with a single code base.
 
 **Adobe Target** is a personalization solution for the web and beyond that allows to build targeted user experiences. Adobe Target is part of the [Adobe Marketing Cloud](https://marketing.adobe.com) and features a Web UI as well as an API ([www.adobe.io](https://www.adobe.io)) that allows to setup the customized experiences (audiences, activities, etc.) for your services.
 
